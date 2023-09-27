@@ -1,0 +1,25 @@
+
+
+name: Deploy
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: install zcloud
+      run: curl -s https://gh.zcloud.ws/scripts/zcloud-install.sh | sh -
+
+    - name: deploy
+      run: zcloud deploy --user-token "${ZCLOUD_USER_TOKEN}" --env "${ZCLOUD_ENV}"
+      
+      
