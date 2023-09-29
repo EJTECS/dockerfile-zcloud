@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/EJTECS/dockerfile-zcloud/issues"
   },
-  "homepage": "https://github.com/EJTECS/dockerfile-zcloud#readme"
+  "homepage": "https://github.com/EJTECS/dockerfile-zcloud#readme",
+  "dependencies": {
+    "node-cron": "^3.0.2"
+  }
 }

@@ -1,10 +1,7 @@
-const delay = ms => new Promise(res => setTimeout(res, ms));
+var cron = require('node-cron');
 
+const task = cron.schedule('* * * * * *', () => {
+  console.log('jorge MARCOS BOIOLA');
+});
 
-(async () => {
-    while (1) {
-        console.log("davi1 boiola...");
-        await delay(1000);
-    }
-})()
-
+task.start();
