@@ -1,9 +1,8 @@
-name: Deploy
+name: Deploy Production
 
 on:
-  pull_request:
+  push:
     branches: ["main"]
-  workflow_dispatch:
 
 jobs:
   deploy:
@@ -17,7 +16,7 @@ jobs:
       - name: deploy
         env:
           ZCLOUD_USER_TOKEN: ${{ secrets.ZCLOUD_USER_TOKEN }}
-          ZCLOUD_ENV: ${{ secrets.ZCLOUD_ENV }}
+          ZCLOUD_ENV: ${{ secrets.ZCLOUD_ENV_PRODUCTION }}
         run: |
           curl -s https://gh.zcloud.ws/scripts/zcloud-install.sh | sh -
           ./zcloud deploy --user-token "${ZCLOUD_USER_TOKEN}" --env "${ZCLOUD_ENV}"
